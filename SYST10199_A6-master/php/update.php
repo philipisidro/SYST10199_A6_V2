@@ -15,10 +15,10 @@
     <form action="" method="post">
 
         
-        <label for="where">Where:</label>
+        <label for="where1">Where:</label>
         <input type="text" name="where1" id="where">
         
-        <label for"where2"> = </label>
+        <label for="where2"> = </label>
         <input type="text" name="where2" id="where">
         
         <label for="newName">New Name: </label>
@@ -61,23 +61,29 @@
             $newReferee = filter_input(INPUT_POST, 'newReree');
             $newOrigin = filter_input(INPUT_POST, 'newOrigin');
             
-            $updateCommand;
+        
             
             if ($where1 == 'name'){
-                $updateCommand = "UPDATE sport SET name = '$newName' WHERE name ='$hwere2'";
+                $updateCommand = "UPDATE sport SET name = '$newName' WHERE name ='$where2'";
+                sendQuery($updateCommand;);
             }else if ($where1 == 'playerCount'){
-                $updateCommand = "UPDATE sport SET playerCount = '$newPlayerCount' WHERE playerCount = '$where2'";
+                $updateCommand = "UPDATE sport SET playerCount = $newPlayerCount WHERE playerCount = $where2";
+                sendQuery();
             }else if ($where1 == 'indoor'){
-                $updateCommand = "UPDATE sport SET indoor = '$newIndoor' WHERE indoor = '$where2'";
+                $updateCommand = "UPDATE sport SET indoor = $newIndoor WHERE indoor = $where2";
+                sendQuery($updateCommand);
             }else if ($where1 == 'referee'){
-                $updateCommand = "UPDATE sport SET referee = '$newReferee' WHERE referee = '$where2'"; 
+                $updateCommand = "UPDATE sport SET referee = '$newReferee' WHERE referee = '$where2'";
+                sendQuery($updateCommand); 
             }else if ($where1 == "origin"){
                 $updateCommand = "UPDATE sport SET origin = '$newReferee' WHERE referee = '$where2'";
+                sendQuery($updateCommand);
             }else {
                 echo "<p> no valid entry within database </p>";
             }
             
-            function sendQuery(){
+            function sendQuery($updateCommand){
+                $updateCommand = $updateCommand;
                 $updateQuery = $bConn->prepare("$updateCommand");
                 $updateExecute = $updateQuery->execute();
             }
