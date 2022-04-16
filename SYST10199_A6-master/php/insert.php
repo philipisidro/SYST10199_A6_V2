@@ -31,7 +31,10 @@
                 clean($inputs[i]);
             }
                    
+<<<<<<< HEAD
+            $insertCommand = "INSERT INTO sport (sport_id, name, player_count, indoor, referee_count, origin) VALUES($sportsID, '$name', $playerCount, '$indoor', '$referee', '$origin')";
             $insertCommand = "INSERT INTO sport (sport_id, name, player_count, indoor, referee_count, origin) VALUES($sportsID, '$name', $playerCount, '$indoor', $referee, '$origin')";
+>>>>>>> 7f1fe415d38c9ae48ea6052342aa427b7998b138
             $insertQuery = $dbConn->prepare($insertCommand);
             $insertExecute = $insertQuery->execute();
             
